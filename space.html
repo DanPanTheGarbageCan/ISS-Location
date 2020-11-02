@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>ISS: Live</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Display|Roboto:400,400i&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <h1>International Space Station: Live</h1>
+    <div class="location-info">
+      <div class="animation">
+        <img id="earth" src="earth.png">
+        <div class="iss">
+          <img id="satellite" src="satellite.png">
+        </div>
+        <div class="location-text">
+          <p>ISS Location</p>
+          <p>Latitude:
+            <span id="lat-value"></span>
+          </p>
+          <p>Longitude:</p>
+          <span id="long-value"></span>
+        </div>
+        <button id="stop" onclick=clearInterval(start)>sToP mY cOmPuTeR iS gOiNg To CrAsH</button>
+      </div>
+
+
+    </div>
+
+
+    <script>
+      var locationAPI = "https://api.wheretheiss.at/v1/satellites/25544";
+      function request(){
+      $.ajax({
+        url:locationAPI,
+        success: updateLocation
+      })
+      }
+      function updateLocation(response){
+      console.log("wow heres the location:", response)
+      $("#lat-value").text(response.latitude)
+      $("#long-value").text(response.longitude)
+      }
+
+      var start = setInterval(request, 1000)
+
+
+    </script>
+  </body>
+</html>
