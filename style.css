@@ -1,0 +1,79 @@
+body {
+  background-image: url('galaxy.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Big Shoulders Display', cursive;
+  font-weight: normal;
+  background-color: black;
+  padding: 10px;
+}
+
+.location-text {
+  margin-bottom: 10px;
+  width: 350px;
+  border: 1px dashed salmon;
+  background-color: black;
+  color: white;
+  margin: auto;
+  text-align: center;
+  font-size: 28px;
+  font-family: 'Big Shoulders Display', cursive;
+  border-radius: 20px;
+}
+
+#lat-value, #long-value {
+  color: salmon;
+}
+
+.animation {
+  width: 700px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+}
+
+#earth{
+  width: 150px;
+  position: absolute;
+  top: 250px;
+  left: 270px;
+}
+
+#stop{
+  position: absolute;
+  top: 450px;
+  left: 230px;
+  color: red;
+}
+
+#satellite {
+  width: 80px;
+}
+
+.iss-info {
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  border: 5px double black;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+.iss-info > p {
+  font-style: italic;
+}
+
+.iss{
+  width: 400px;
+  position: absolute;
+  height: 250px;
+  top: 250px;
+  left: 185px;
+}
