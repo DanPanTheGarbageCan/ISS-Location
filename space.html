@@ -6,20 +6,52 @@
     <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Display|Roboto:400,400i&display=swap" rel="stylesheet">
   </head>
   <body>
+    <img class="ufo" src="ufo.png">
     <h1>International Space Station: Live</h1>
     <div class="location-info">
       <div class="animation">
-        <img id="earth" src="earth.png">
         <div class="iss">
           <img id="satellite" src="satellite.png">
         </div>
         <div class="location-text">
           <p>ISS Location</p>
+          <button class="show-lat-long" onclick=showLL()>Show Latitude and Longitude</button>
+          <button class="hide-lat-long" onclick=hideLL()>Hide Latitude and Longitude</button>
+          <button class="show-alt" onclick=showAlt()>Show Altitude</button>
+          <button class="hide-alt" onclick=hideAlt()>Hide Altitude</button>
+          <button class="show-vel" onclick=showVel()>Show Velocity</button>
+          <button class="hide-vel" onclick=hideVel()>Hide Velocity</button>
+          <button class="show-vis" onclick=showVis()>Show Visibility</button>
+          <button class="hide-vis" onclick=hideVis()>Hide Visibility</button>
+          <button class="show-foot" onclick=showFoot()>Show Footprint</button>
+          <button class="hide-foot" onclick=hideFoot()>Hide Footprint</button>
+          <div class="lat-long">
           <p>Latitude:
             <span id="lat-value"></span>
           </p>
           <p>Longitude:</p>
           <span id="long-value"></span>
+          </div>
+          <div class="alt">
+          <p>Altitude:
+            <span id="alt-value"></span>
+          </p>
+          </div>
+          <div class="vel">
+          <p>Velocity:
+            <span id="vel-value"></span>
+          </p>
+          </div>
+          <div class="vis">
+          <p>Visibility:
+            <span id="vis-value"></span>
+          </p>
+          </div>
+          <div class="foot">
+          <p>Footprint:
+            <span id="foot-value"></span>
+          </p>
+          </div>
         </div>
         <button id="stop" onclick=clearInterval(start)>sToP mY cOmPuTeR iS gOiNg To CrAsH</button>
       </div>
@@ -29,6 +61,67 @@
 
 
     <script>
+      $(".lat-long").hide();
+      $(".hide-lat-long").hide();
+      $(".alt").hide();
+      $(".hide-alt").hide();
+      $(".vel").hide();
+      $(".hide-vel").hide();
+      $(".vis").hide();
+      $(".hide-vis").hide();
+      $(".foot").hide();
+      $(".hide-foot").hide();
+      
+      function showLL(){
+        $(".lat-long").show();
+        $(".show-lat-long").hide();
+        $(".hide-lat-long").show();
+      }
+      function hideLL(){
+        $(".lat-long").hide();
+        $(".show-lat-long").show();
+        $(".hide-lat-long").hide();
+      }
+      function showAlt(){
+        $(".alt").show();
+        $(".show-alt").hide();
+        $(".hide-alt").show();
+      }
+      function hideAlt(){
+        $(".alt").hide();
+        $(".show-alt").show();
+        $(".hide-alt").hide();
+      }
+      function showVel(){
+        $(".vel").show();
+        $(".show-vel").hide();
+        $(".hide-vel").show();
+      }
+      function hideVel(){
+        $(".vel").hide();
+        $(".show-vel").show();
+        $(".hide-vel").hide();
+      }
+      function showVis(){
+        $(".vis").show();
+        $(".show-vis").hide();
+        $(".hide-vis").show();
+      }
+      function hideVis(){
+        $(".vis").hide();
+        $(".show-vis").show();
+        $(".hide-vis").hide();
+      }
+      function showFoot(){
+        $(".foot").show();
+        $(".show-foot").hide();
+        $(".hide-foot").show();
+      }
+      function hideFoot(){
+        $(".foot").hide();
+        $(".show-foot").show();
+        $(".hide-foot").hide();
+      }
       var locationAPI = "https://api.wheretheiss.at/v1/satellites/25544";
       function request(){
       $.ajax({
@@ -40,6 +133,10 @@
       console.log("wow heres the location:", response)
       $("#lat-value").text(response.latitude)
       $("#long-value").text(response.longitude)
+      $("#alt-value").text(response.altitude)
+      $("#vel-value").text(response.velocity)
+      $("#vis-value").text(response.visibility)
+      $("#foot-value").text(response.footprint)
       }
 
       var start = setInterval(request, 1000)
@@ -48,3 +145,4 @@
     </script>
   </body>
 </html>
+
